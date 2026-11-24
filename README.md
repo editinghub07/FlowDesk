@@ -45,3 +45,20 @@ Use LifeFlow → Customize habits to add, rename, or remove habits in the existi
 
 ## v1.1 final release candidate (wallet update)
 The displayed version is v1.1, with a new internal service worker cache revision. SpendFlow adds opening balances, cash and bank/UPI accounts, manual income and transfer events, custom categories, a monthly budget and selected-year total. The same ledger key is preserved; old expenses before the opening date do not reduce the new wallet balance. Enter opening balances before today's recorded expenses. Wallet data is included in SpendFlow backup and Drive snapshots. Earlier app versions cannot preserve the new wallet fields; update all devices before syncing. LifeFlow includes seven-day/year summaries and custom habits; EditFlow includes editable project task lists. Reminders and update controls are on Home. Reminder preferences are device-local and alerts only appear in the open app, without external push infrastructure. Full custom/light themes are not included. Google OAuth/Drive, Windows and mobile offline installation still require real-device testing. Windows setup opens this same published web origin in Edge with a dedicated local profile. See START-HERE.txt in the complete project bundle.
+
+FlowDesk v1.1.2 — Account & Fast Sync Update
+
+What's new in FlowDesk v1.1.2:
+
+- Faster automatic Google Drive synchronization.
+- Improved cross-device data synchronization between PC, Android and iOS.
+- Automatic sync checks every 8 seconds while the app is open.
+- Google account profile remembered after closing the app.
+- Improved account reconnection and session management.
+- Added logout and account switching options.
+- Added last synchronized time.
+- Improved expense merging to prevent duplicate records.
+- Bug fixes and synchronization improvements.
+
+Existing user records and settings are preserved with compatible storage. Google Drive remains the only cloud storage service. No reinstallation required.
+Google may occasionally require renewed authorization.
