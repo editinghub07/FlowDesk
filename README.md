@@ -62,3 +62,7 @@ What's new in FlowDesk v1.1.2:
 
 Existing user records and settings are preserved with compatible storage. Google Drive remains the only cloud storage service. No reinstallation required.
 Google may occasionally require renewed authorization.
+
+## FlowDesk v1.1.3 — Persistent Login & Auto Sync
+
+Introducing FlowDesk v1.1.3 with persistent Google login, automatic authorization renewal, faster device synchronization and improved account security. Added an in-app upgrade notification and migration guide.
