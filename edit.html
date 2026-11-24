@@ -348,7 +348,7 @@ let storageReady=false;
 function toast(s){$('toast').textContent=s;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),3500)}
 function error(e){toast(e?.message||String(e))}
 function options(arr,sel=''){return arr.map(x=>`<option value="${escape(x.id)}" ${x.id===sel?'selected':''}>${escape(x.name||x.title)}</option>`).join('')}
-function openModal(title,body,save){$('modalTitle').textContent=title;$('modalBody').innerHTML=`<form id="editForm">${body}<div class="form-actions"><button class="btn primary" type="submit">Save</button></div></form>`;$('modal').showModal();$('editForm').onsubmit=async e=>{e.preventDefault();const b=e.submitter;b.disabled=true;try{await save(new FormData(e.currentTarget));$('modal').close();await load();toast('Saved successfully')}catch(err){error(err)}finally{b.disabled=false}}}
+function openModal(title,body,save){$('modalTitle').textContent=title;$('modalBody').innerHTML=`<form id="editForm">${body}<div class="form-actions"><button class="btn primary" type="submit">Save</button></div></form>`;const opened=localStorage.getItem(STORAGE_KEY);$('modal').showModal();$('editForm').onsubmit=async e=>{e.preventDefault();const b=e.submitter;b.disabled=true;try{if(localStorage.getItem(STORAGE_KEY)!==opened)throw Error('Records changed on another device. Close and reopen this form before saving.');await save(new FormData(e.currentTarget));$('modal').close();await load();toast('Saved successfully')}catch(err){error(err)}finally{b.disabled=false}}}
 function field(name,label,value='',type='text',required=false){return `<div class="field"><label>${label}</label><input name="${name}" type="${type}" value="${escape(value)}" ${required?'required':''}></div>`}
 function select(name,label,values,chosen=''){return `<div class="field"><label>${label}</label><select name="${name}">${values.map(v=>`<option ${v===chosen?'selected':''}>${escape(v)}</option>`).join('')}</select></div>`}
 function emptyDB(){return {clients:[],projects:[],transactions:[],invoices:[]}}
@@ -360,7 +360,7 @@ function persist(next){if(!storageReady)throw Error('Local browser storage is no
 function createID(){return (window.crypto&&crypto.randomUUID)?crypto.randomUUID():'local-'+Date.now()+'-'+Math.random().toString(36).slice(2)}
 async function query(table,method,values,id){
  if(table==='invoices'||!TABLES.includes(table))throw Error('Unknown table');
- const next=structuredClone(data);
+ const raw=localStorage.getItem(STORAGE_KEY);data=raw?validateDB(JSON.parse(raw)):emptyDB();const next=structuredClone(data);
  if(method==='delete'){
    next[table]=next[table].filter(x=>x.id!==id);
    if(table==='clients'){next.projects.forEach(p=>{if(p.client_id===id)p.client_id=null});next.invoices.forEach(i=>{if(i.client_id===id)i.client_id=null})}
@@ -395,6 +395,7 @@ async function init(){bind();$('todayLabel').textContent=new Date().toLocaleDate
 init().catch(error);
 })();
 
-  </script>
+  window.addEventListener('storage',e=>{if(e.key===STORAGE_KEY){try{data=e.newValue?validateDB(JSON.parse(e.newValue)):emptyDB();render()}catch(err){error(err)}}});
+</script>
 </body>
 </html>
