@@ -1,0 +1,83 @@
+FLOWDESK v1.1 — MULTIPLATFORM RELEASE CANDIDATE
+================================================
+One web application for Windows, Android, and iPhone/iOS.
+No Firebase, Supabase, ads, analytics or other cloud storage. Google Drive is
+ the only cloud data store; GitHub Pages serves static app files. Offline
+ records are in browser storage. Google login is optional in guest mode.
+
+1. PUBLISH FIRST (developer only)
+   - Upload the CONTENTS of web/ to the root of a public GitHub repository.
+   - Settings > Pages > Deploy from a branch > main > /(root).
+   - Configure Google Cloud OAuth + Drive API following web/README.md.
+   - Set your real public OAuth client ID in web/config.js, not a client secret.
+   - Edit the privacy contact, authorize the site's origin and test logins.
+   - Complete Google publishing/verification before inviting customers.
+   - Keep the same URL, OAuth project, and local storage keys for updates.
+
+2. WINDOWS (after publishing)
+   Run FlowDesk-Setup-v1.1.exe, approve UAC, enter the published HTTPS URL,
+   then confirm with y. It creates program files under Program Files\FlowDesk
+   (usually C:\Program Files\FlowDesk), common Desktop/Start menu shortcuts,
+   and an Installed apps entry. The shortcut opens the hosted site in Edge's
+   standalone app window using a dedicated local profile. First launch online
+   and wait for Offline ready. Reconnect Google when authorization expires.
+   The shortcut uses the provided RGB icon. The launcher EXE itself has no
+   embedded icon; it uses the standard executable icon. Microsoft Edge is
+   required. Alternatively install the PWA directly through Edge or Chrome;
+   this is recommended if Google login popup behavior differs in app mode.
+
+3. ANDROID / IPHONE
+   Android: open the same HTTPS URL in Chrome, menu > Install app or Add to
+   Home screen. iPhone: Safari > Share > Add to Home Screen (Open as Web App
+   when offered). Open online the first time, wait for Offline ready, and
+   authorize the same Google account on each device. These are PWAs, not APKs,
+   IPAs, or Play Store/App Store releases. No app-store fee is required.
+
+4. UNINSTALL WINDOWS
+   Close FlowDesk and its dedicated Edge windows. Back up and sync first.
+   Run C:\Program Files\FlowDesk\Uninstall.exe or Windows Installed apps.
+   Confirm program removal. Separately confirm deletion of the current
+   Windows account's dedicated local profile if desired. Program files,
+   shortcut and registration removal are intended; the uninstaller removes
+   itself after closing. Only known installed files are removed, not arbitrary
+   unrelated files in the folder. Cloud copies, exported backups and other
+   Windows accounts' data are not removed. Use your own administrator account
+   when deleting your own local records. If files are in use, close the app and
+   retry. Existing legacy Windows local data may not carry over to the hosted
+   web origin; transfer individual backups if necessary.
+
+5. DAILY REMINDERS / SYNC / UPDATES
+   Home > Settings & reminders: choose a reminder time and trackers. These
+   reminders show inside the open app, not while closed. Preferences are local
+   to each browser/account; no external push service. Google Drive sync runs
+   only while open, online and authorized. Avoid concurrent edits; confirm
+   sync before switching devices. Resolve conflicts carefully; older Drive
+   snapshots are retained. For app updates, upload all files together and
+   change the cache revision in sw.js; users can check/install waiting updates
+   from Home. Back up records before updates. App data is not encrypted by
+   FlowDesk separately from browser/device security.
+
+6. SPENDFLOW WALLET
+   Set opening balances BEFORE today's recorded expenses. Cash and Bank/UPI
+   wallets are manual, not bank integrations. Add income or transfer funds;
+   transfers and opening balances are not expenses or income. Expenses deduct
+   from the selected wallet. Add bank accounts/categories and a monthly limit.
+   Prior dates remain read-only in normal use. Negative balances are shown as
+   warnings, not overdraft verification. Editing income is not automatically
+   double-posted to SpendFlow; enter income manually when received. Savings
+   shows recorded income less recorded expenses, not a bank statement.
+
+7. RELEASE STATUS
+   Build passed JavaScript syntax checks, offline asset existence checks, wallet
+   arithmetic tests and historical habit denominator tests. Windows x64 EXE
+   cross-compiled successfully. Actual Windows install/uninstall, Google OAuth,
+   Drive sync, mobile install and service worker offline launch require testing
+   on real devices; localhost browser navigation was blocked by the environment.
+   Unsigned installer: SmartScreen/Defender approval is not guaranteed. No
+   security settings or antivirus exclusions are modified. Code-sign and test
+   before distributing widely. Full theme customization/light mode and native
+   mobile packages are not included. Account cloud deletion is via Google Drive
+   settings; settings are device-local. This is a release candidate, not a
+   security-audited production release.
+
+Windows source is included in windows-source/. Web source is in web/.
