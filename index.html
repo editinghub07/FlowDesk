@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>FlowDesk</title><link rel="icon" href="./icon-192.png"><link rel="apple-touch-icon" href="./apple-touch-icon.png"><link rel="manifest" href="./manifest.webmanifest"><meta name="theme-color" content="#08090d"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><meta name="apple-mobile-web-app-title" content="FlowDesk">
+<style>
+:root{--bg:#08090d;--bg2:#0f1017;--panel:#12141b;--panel2:#171a24;--line:#272b39;--white:#f7f7fb;--muted:#9da3b7;--purple:#b899ff;--blue:#61a7ff;--pink:#ff6ecf;--red:#ff4a57;--green:#d1ff75;--yellow:#ffd400;--rgb:linear-gradient(90deg,var(--purple),var(--blue),var(--pink),var(--purple));}
+*{box-sizing:border-box} html,body{margin:0;height:100%;background:var(--bg);color:var(--white);font:14px/1.5 Inter,'Segoe UI',system-ui,sans-serif;overflow:hidden}
+button{font:inherit;color:inherit;cursor:pointer} button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.topbar{position:relative;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:16px 22px;border-bottom:1px solid #ffffff14;background:rgba(9,10,14,.72);backdrop-filter:blur(18px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:22px;letter-spacing:-1px;white-space:nowrap}
+.mark{width:38px;height:38px;display:grid;place-items:center;border-radius:12px;background:linear-gradient(135deg,var(--purple),var(--blue),var(--pink));box-shadow:0 0 28px #7b6cff66;color:#08090d}
+.mark svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2.1;stroke-linecap:round}
+.tabs{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:center}
+.tab{position:relative;border:1px solid #ffffff12;background:#131620;color:#cbd0de;padding:10px 14px;border-radius:999px;font-weight:650;display:inline-flex;align-items:center;gap:8px;transition:.2s}
+.tab i{width:8px;height:8px;border-radius:50%;background:var(--c,transparent);box-shadow:0 0 14px var(--c,transparent)}
+.tab:hover,.tab[aria-selected="true"]{color:#fff;border-color:#ffffff26;background:linear-gradient(180deg,#1c2030,#141722)}
+.local{font-size:12px;color:#c5c9d8;white-space:nowrap} .local b{color:var(--green)}
+.stage{height:calc(100vh - 71px);position:relative} .view{width:100%;height:100%;border:0;background:#0b0c10}
+.home{position:relative;overflow:auto;height:100%}
+.bg{position:fixed;inset:71px 0 0 0;pointer-events:none;background:radial-gradient(circle at 15% 20%,#6a52ff24,transparent 22%),radial-gradient(circle at 85% 18%,#ff5ec922,transparent 18%),radial-gradient(circle at 80% 85%,#3ca0ff1f,transparent 22%),linear-gradient(180deg,#0a0b10,#0b0d13 34%,#08090d)}
+.bg:before,.bg:after{content:'';position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;mix-blend-mode:screen;animation:orb 14s ease-in-out infinite alternate}
+.bg:before{width:38vw;height:38vw;background:conic-gradient(from 0deg,var(--purple),var(--pink),var(--blue),var(--purple));top:-12vw;left:-8vw}
+.bg:after{width:42vw;height:42vw;background:conic-gradient(from 180deg,var(--blue),var(--pink),var(--purple),var(--blue));right:-10vw;bottom:-16vw;animation-duration:18s}
+@keyframes orb{to{transform:translate(5vw,3vw) rotate(120deg)}}
+.wrap{position:relative;z-index:1;max-width:1350px;margin:auto;padding:34px 28px 40px}
+.hero{display:grid;grid-template-columns:1.12fr .88fr;gap:20px;align-items:stretch}
+.heroPanel,.previewPanel,.glass,.appcard{position:relative;border:1px solid #ffffff14;background:linear-gradient(155deg,rgba(23,25,33,.92),rgba(12,14,20,.92));backdrop-filter:blur(18px);box-shadow:0 10px 50px #00000040;overflow:hidden}
+.heroPanel{border-radius:30px;padding:34px;min-height:420px}
+.previewPanel{border-radius:30px;padding:26px;display:flex;align-items:center;justify-content:center;min-height:420px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:2.3px;text-transform:uppercase;font-weight:800;color:#cfc5ff}
+.eyebrow .pulse{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--purple),var(--blue),var(--pink));box-shadow:0 0 18px #ae9aff88;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{50%{transform:scale(1.2);box-shadow:0 0 30px #61a7ff88}}
+.heroPanel h1{font-size:clamp(42px,6vw,76px);line-height:0.98;letter-spacing:-3px;margin:16px 0 16px}
+.heroPanel .grad{background:var(--rgb);background-size:240% 240%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shift 8s ease infinite}
+@keyframes shift{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.heroPanel p{max-width:650px;color:#b0b5c6;font-size:15px;margin:0 0 24px}
+.heroMeta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.pill{display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:999px;background:#ffffff08;border:1px solid #ffffff12;color:#dbe0ee;font-size:12px;font-weight:650}
+.heroActions{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:26px}
+.action{border:1px solid #ffffff18;border-radius:14px;padding:13px 16px;background:#ffffff09;font-weight:700;display:inline-flex;align-items:center;gap:10px;transition:.2s} .action:hover{transform:translateY(-2px);border-color:#ffffff30}
+.action.primary{background:linear-gradient(90deg,var(--purple),var(--blue),var(--pink));color:#08090d;border:none;box-shadow:0 8px 34px #7e67ff44}
+.lines{position:absolute;inset:auto 0 0 0;height:115px;display:flex;align-items:flex-end;gap:10px;padding:0 28px 26px;opacity:.9}
+.lines i{display:block;flex:1;border-radius:16px 16px 0 0;background:linear-gradient(180deg,var(--purple),var(--blue),var(--pink));box-shadow:0 0 18px #7b6cff55;animation:bars 2.8s ease-in-out infinite;height:30%}
+.lines i:nth-child(2){animation-delay:-.2s;height:62%} .lines i:nth-child(3){animation-delay:-.6s;height:44%} .lines i:nth-child(4){animation-delay:-1s;height:78%} .lines i:nth-child(5){animation-delay:-.35s;height:55%} .lines i:nth-child(6){animation-delay:-.8s;height:86%} .lines i:nth-child(7){animation-delay:-.15s;height:38%}
+@keyframes bars{50%{filter:brightness(1.28);transform:scaleY(1.08)}}
+.gridRings{position:relative;width:min(100%,420px);aspect-ratio:1} 
+.ring,.ring2,.ring3{position:absolute;inset:12% 12%;border-radius:50%;border:1px solid #ffffff20;animation:spin 22s linear infinite} .ring2{inset:22%;border-style:dashed;border-color:#61a7ff55;animation-direction:reverse;animation-duration:16s} .ring3{inset:34%;border-color:#ff6ecf88 #0000 #b899ff88 #0000;border-width:2px;animation-duration:10s}
+.core{position:absolute;inset:36%;border-radius:28px;background:linear-gradient(145deg,#181c27,#10131a);border:1px solid #ffffff18;display:grid;place-items:center;text-align:center;box-shadow:0 0 40px #0000005c,inset 0 0 22px #ffffff08}
+.core b{display:block;font-size:28px;letter-spacing:-1px} .core span{font-size:11px;color:#aab0c2;letter-spacing:1.5px;text-transform:uppercase}
+.floatTag{position:absolute;padding:9px 12px;border-radius:14px;background:#111522d0;border:1px solid #ffffff14;color:#dbe0ee;font-size:11px;font-weight:700;box-shadow:0 6px 26px #0004;backdrop-filter:blur(10px);animation:floaty 5.5s ease-in-out infinite} .t1{top:10%;right:2%} .t2{left:0%;top:50%;animation-delay:-1.4s} .t3{bottom:8%;right:10%;animation-delay:-.8s}
+@keyframes floaty{50%{transform:translateY(-8px)}} @keyframes spin{to{transform:rotate(360deg)}}
+.section{display:flex;align-items:center;gap:14px;margin:30px 0 16px} .section span{font-size:10px;letter-spacing:1.8px;color:#c8ccda;text-transform:uppercase;font-weight:800} .section::after{content:'';flex:1;height:1px;background:#ffffff14}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.appcard{border-radius:24px;padding:24px;min-height:290px;text-align:left;transition:transform .22s,border-color .22s} .appcard:hover{transform:translateY(-4px);border-color:var(--c)}
+.appcard::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,var(--glow),transparent 32%);pointer-events:none}
+.appicon{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;color:var(--c);background:color-mix(in srgb,var(--c) 10%, transparent);border:1px solid color-mix(in srgb,var(--c) 35%, transparent);font-size:28px;font-weight:800}
+.appicon svg{width:27px;height:27px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.appcard h2{font-size:28px;letter-spacing:-1px;margin:16px 0 4px} .appcard p{margin:0;color:#adb3c4;font-size:13px;min-height:42px}
+.stat{margin:22px 0 16px;padding-top:16px;border-top:1px solid #ffffff12} .stat small{display:block;font-size:11px;color:#98a0b6} .stat strong{display:block;margin-top:5px;font-size:34px;letter-spacing:-1.2px;color:var(--c)}
+.open{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:10px;color:#d7dcec;font-size:12px;font-weight:700}
+.info{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 20px;border-radius:20px;border:1px solid #ffffff14;background:linear-gradient(155deg,rgba(23,25,33,.9),rgba(13,14,20,.9))} .info b{display:block;color:#fff;margin-bottom:4px} .info button{border:none;border-radius:14px;padding:12px 15px;background:linear-gradient(90deg,var(--purple),var(--blue));color:#08090d;font-weight:800;white-space:nowrap}
+.warning{margin-top:18px;padding:13px 16px;border-radius:14px;border:1px solid #ffacac42;background:#ff6e6e14;color:#ffc5c5}
+.foot{display:flex;justify-content:space-between;gap:16px;color:#8f96ab;font-size:11px;margin:18px 0 0}
+@media (max-width:1120px){.hero{grid-template-columns:1fr} .previewPanel{min-height:340px} .cards{grid-template-columns:1fr 1fr}}
+@media (max-width:700px){.topbar{padding:12px 14px;align-items:flex-start;flex-direction:column} .tabs{justify-content:flex-start} .local{font-size:11px} .stage{height:calc(100vh - 118px)} .bg{inset:118px 0 0 0} .wrap{padding:18px 14px 26px} .heroPanel,.previewPanel{padding:20px;border-radius:22px;min-height:auto} .heroPanel h1{font-size:44px} .cards{grid-template-columns:1fr} .info,.foot{flex-direction:column;align-items:flex-start}}
+[hidden]{display:none!important}body{display:flex;flex-direction:column}.topbar{flex:none}.stage{height:auto;flex:1;min-height:0}.bg{position:absolute;inset:0;min-height:100%;overflow:hidden}.heroPanel{padding-bottom:130px}.lines{pointer-events:none}.core b{font-size:clamp(12px,2vw,22px)}.core span{font-size:9px;letter-spacing:.5px}.gridRings{max-width:420px}.motion-off *, .motion-off *:before,.motion-off *:after{animation:none!important;transition:none!important}#motionHome{border:1px solid #ffffff24;background:#151820;border-radius:9px;padding:7px 10px;color:#dce0ec;font-size:11px}.local{display:flex;align-items:center;gap:9px}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}@media(max-width:700px){.heroPanel{padding-bottom:125px}.stage{height:auto}.previewPanel{min-height:280px}.topbar{gap:8px}.core b{font-size:15px}}
+
+/* Live local clock: v1.3 */
+.previewPanel{flex-direction:column;justify-content:flex-start;padding:30px 26px 14px;background:radial-gradient(ellipse at 50% 0%,#5941a52e,transparent 67%),linear-gradient(155deg,#171921eb,#0c0e14eb)}
+.clockface{position:relative;z-index:2;width:100%;text-align:right;padding:10px 10px 20px;border-bottom:1px solid #ffffff18}
+.clockhead{display:flex;justify-content:flex-end;align-items:center;gap:8px;color:#b7bbcf;font-size:10px;letter-spacing:2px;font-weight:750}
+.clockdot{width:7px;height:7px;border-radius:50%;background:#d1ff75;box-shadow:0 0 12px #d1ff7588}.clocklive{letter-spacing:1px;color:#d1ff75;border:1px solid #d1ff7530;padding:3px 7px;border-radius:5px}
+.clockdigits{font-size:clamp(38px,5vw,76px);font-weight:750;letter-spacing:-.065em;line-height:1.12;white-space:nowrap;font-variant-numeric:tabular-nums;margin-top:12px;color:#f5f3ff;text-shadow:0 0 32px #a58aff55;background:linear-gradient(110deg,#f6efff,#c1b4ff 55%,#83c6ff);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.clockunits{display:flex;justify-content:flex-end;gap:clamp(12px,2vw,30px);font-size:9px;letter-spacing:1px;color:#858aa4;margin:4px 0 18px}.clockday{font-size:23px;font-weight:650;letter-spacing:-.5px}.clockdate{font-size:14px;color:#aeb4c9;margin-top:2px}
+.previewPanel .gridRings{max-width:285px;flex:none;margin:4px auto 0}.previewPanel .core{inset:30%;border-radius:20px}.previewPanel .floatTag{font-size:9px;padding:7px 9px}.previewPanel .core b{font-size:18px}.previewPanel .core span{font-size:8px}.previewPanel .t1{right:-5%}.previewPanel .t2{left:-7%}.previewPanel .t3{right:1%}
+@media(max-width:1120px){.previewPanel{min-height:0;flex-direction:row;align-items:center;gap:18px}.clockface{order:2;border:0}.previewPanel .gridRings{width:38%;min-width:150px}.clockdigits{font-size:clamp(38px,7vw,76px)}}
+@media(max-width:650px){.previewPanel{flex-direction:column;gap:0}.clockface{order:0;padding:6px 0 14px}.clockdigits{font-size:clamp(38px,12vw,65px)}.previewPanel .gridRings{width:75%;max-width:245px}.clockunits{gap:24px}.clockday{font-size:20px}}
+
+[hidden]{display:none!important}html{height:100%;}body{display:flex;flex-direction:column;height:100vh;height:100dvh;padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}.topbar{flex:none}.stage{flex:1;min-height:0;height:auto}.view{height:100%;width:100%;display:block}.home{isolation:isolate}.bg{position:absolute;inset:0;z-index:-1}.installHelp{font-size:12px;line-height:1.65;color:#ddd6ff;background:#242139;border:1px solid #7261a1;border-radius:12px;padding:12px;margin-bottom:12px}.heroMeta{align-items:center}.heroPanel{padding-bottom:122px}.lines{pointer-events:none}.local{white-space:normal}.tab{touch-action:manipulation}.clockdigits{font-variant-numeric:tabular-nums}.previewPanel{min-width:0}
+@media(max-width:700px){.topbar{padding:9px 14px;flex-direction:row;align-items:center;justify-content:space-between;gap:8px}.brand{font-size:19px}.mark{width:32px;height:32px}.local{display:flex;align-items:center;gap:5px;font-size:10px;max-width:55%;text-align:right}.local b{display:none}#motionHome{font-size:10px;padding:7px;white-space:nowrap}.tabs{position:fixed;bottom:0;left:0;right:0;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:#10111cf5;border-top:1px solid #ffffff25;backdrop-filter:blur(20px);display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px;z-index:30}.tab{justify-content:center;flex-direction:column;font-size:11px;gap:5px;border-radius:12px;padding:7px 3px;min-height:49px}.tab i{width:7px;height:7px}.tab:first-child:before{content:'⌂';font-size:15px;line-height:10px;color:#c5b5ff}.stage{margin-bottom:65px}.wrap{padding:14px 12px 24px}.hero{gap:12px}.heroPanel{padding:24px 18px 28px;min-height:0}.heroPanel h1{font-size:clamp(32px,9vw,47px);letter-spacing:-1.8px}.heroPanel p{font-size:13px}.heroActions{gap:7px;margin-bottom:0}.action{padding:10px;font-size:11px}.heroMeta{margin-bottom:14px}.lines{display:none}.previewPanel{min-height:0;padding:20px 18px;display:flex;flex-direction:column}.previewPanel .gridRings{display:none}.clockface{width:100%;min-width:0}.clockdigits{font-size:clamp(38px,12vw,60px)!important}.cards{gap:10px}.appcard{min-height:0;padding:17px;border-radius:18px}.appcard h2{font-size:22px;margin:10px 0 3px}.appcard p{min-height:0}.stat{margin:12px 0 5px;padding-top:10px}.stat strong{font-size:28px}.appicon{width:40px;height:40px}.section{margin:23px 0 12px}.info{font-size:12px}.info button{min-height:44px}.foot{gap:5px}.bg:before,.bg:after{filter:blur(55px);width:80vw;height:80vw}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+@media(max-width:700px){.topbar{backdrop-filter:none;-webkit-backdrop-filter:none;background:#10111c}.heroPanel h1{margin:10px 0 12px}.heroPanel p{margin-bottom:15px}.heroPanel{padding:20px 16px}.clockface{padding-bottom:0}.clockunits{margin-bottom:10px}.previewPanel{padding:15px 18px}.clockday{font-size:18px}.clockdigits{margin-top:7px}}
+
+/* Google account panel */
+.cloudpanel{position:relative;display:grid;gap:14px;padding:20px;border:1px solid #ffffff20;border-radius:22px;background:linear-gradient(125deg,#1e2034e8,#11131be8);margin-bottom:22px;box-shadow:0 12px 40px #0003}.cloudhead{display:flex;justify-content:space-between;gap:14px;align-items:center}.cloudidentity{display:flex;gap:12px;align-items:center;min-width:0}.cloudavatar{display:grid;place-items:center;width:44px;height:44px;flex:none;border-radius:13px;background:linear-gradient(140deg,#a78bfa,#60a5fa);color:#10121d;font-size:22px;font-weight:800}.cloudidentity b{display:block;font-size:16px;overflow-wrap:anywhere}.cloudidentity small,.cloudhint{color:#b2b9cc;font-size:12px}.cloudbuttons{display:flex;gap:8px;flex-wrap:wrap}.cloudbuttons button{padding:10px 13px;border-radius:11px;background:#ffffff0b;border:1px solid #ffffff22;font-weight:650;font-size:12px}.cloudbuttons button:disabled{opacity:.45;cursor:not-allowed}.cloudbuttons .googlebtn{background:#fff;color:#202124;display:flex;align-items:center;gap:10px;border:1px solid #dadce0}.googlebtn svg{width:18px;height:18px;flex:none}.cloudstatus{font-size:12px;color:#c9c9e8;border-top:1px solid #ffffff14;padding-top:10px;overflow-wrap:anywhere}.cloudconflict{padding:12px;border:1px solid #fbbf2455;border-radius:13px;background:#fbbf2410;color:#ffe3a5;font-size:12px;display:grid;gap:10px}.cloudpanel a{color:#b7c8ff}.cloudhint{margin:0}.cloudhistory{display:grid;gap:8px}.cloudhistory button{width:100%;text-align:left;overflow-wrap:anywhere}.cloudhead .pill{font-size:10px;white-space:normal}.cloudbuttons button:focus-visible{outline:2px solid #a5b4fc;outline-offset:2px}@media(max-width:700px){.cloudpanel{padding:15px;border-radius:17px}.cloudhead{align-items:flex-start}.cloudhead .pill{padding:5px 7px}.cloudbuttons button{min-height:42px}.cloudidentity b{font-size:14px}}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="brand"><span class="mark"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h10M4 17h6"/><path d="m15 15 3 3 4-5"/></svg></span>FlowDesk</div>
+  <nav class="tabs" role="tablist" aria-label="Workspaces">
+    <button class="tab" role="tab" id="tab-home" aria-controls="home" aria-selected="true" data-tab="home">Home</button>
+    <button class="tab" role="tab" id="tab-life" aria-controls="life" aria-selected="false" data-tab="life" style="--c:#d1ff75"><i></i>LifeFlow</button>
+    <button class="tab" role="tab" id="tab-spend" aria-controls="spend" aria-selected="false" data-tab="spend" style="--c:#ff454f"><i></i>SpendFlow</button>
+    <button class="tab" role="tab" id="tab-edit" aria-controls="edit" aria-selected="false" data-tab="edit" style="--c:#ffd400"><i></i>EditFlow</button>
+  </nav>
+  <div class="local"><b>●</b> <span id="offlineStatus">Preparing offline access…</span> <button id="motionHome" aria-pressed="false">Motion on</button></div>
+</header>
+<main class="stage">
+  <section id="home" class="view home" role="tabpanel" aria-labelledby="tab-home">
+    <div class="bg"></div>
+    <div class="wrap">
+      <div class="hero">
+        <div class="heroPanel">
+          <div class="eyebrow"><span class="pulse"></span> Your personal workspace</div>
+          <h1>Build your <span class="grad">daily flow</span><br>with one workspace.</h1>
+          <p>One workspace for daily habits, personal finances and creative projects. Your records stay on your device.</p>
+          <div class="heroMeta">
+            <span class="pill">3 Workspaces</span><button class="action" id="installApp">Install app</button>
+          </div>
+          <div class="heroActions">
+            <button class="action primary" data-open="life">Open LifeFlow</button>
+            <button class="action" data-open="spend">Open SpendFlow</button>
+            <button class="action" data-open="edit">Open EditFlow</button>
+          </div>
+          <div id="installHelp" class="installHelp" hidden>On iPhone: Safari → Share → Add to Home Screen → Open as Web App. On Android: Chrome menu → Install app or Add to Home screen. First open online and wait for Offline ready.</div><div class="warning" id="warning" hidden>Local storage is unavailable. Enable storage in your browser before entering records.</div>
+          <div class="lines"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="previewPanel">
+          <div class="clockface" aria-label="Local date and time">
+            <div class="clockhead"><span class="clockdot"></span> LOCAL TIME <span class="clocklive">LIVE</span></div>
+            <div class="clockdigits" id="clock">--:--:--</div>
+            <div class="clockunits"><span>HOURS</span><span>MINUTES</span><span>SECONDS</span></div>
+            <div class="clockday" id="weekday">—</div>
+            <div class="clockdate" id="date">—</div>
+          </div>
+          <div class="gridRings" aria-hidden="true">
+            <div class="ring"></div><div class="ring2"></div><div class="ring3"></div>
+            <div class="core"><div><b>FlowDesk</b><span>Personal workspace</span></div></div>
+            <div class="floatTag t1">Daily discipline</div>
+            <div class="floatTag t2">Spending analytics</div>
+            <div class="floatTag t3">Creative projects</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section"><span>Account &amp; cloud sync</span></div>
+<section class="cloudpanel" aria-label="Google account and Drive sync">
+ <div class="cloudhead"><div class="cloudidentity"><div class="cloudavatar" id="cloudAvatar">G</div><div><b id="cloudName">Guest workspace</b><small id="cloudEmail">Local records only</small></div></div><span class="pill" id="cloudBadge">Local mode</span></div>
+ <div class="cloudbuttons"><button class="googlebtn" id="googleLogin"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#4285F4" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.6c3.9-3.6 6.1-8.8 6.1-15z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.5l-6.6-5.1a12.3 12.3 0 0 1-18.3-6.5H5.8v5.3A20 20 0 0 0 24 44z"/><path fill="#FBBC05" d="M12.6 27.9a12 12 0 0 1 0-7.8v-5.3H5.8a20 20 0 0 0 0 18.4z"/><path fill="#EA4335" d="M24 11.9c3 0 5.7 1 7.8 3l5.8-5.8A19.4 19.4 0 0 0 24 4 20 20 0 0 0 5.8 14.8l6.8 5.3A12 12 0 0 1 24 11.9z"/></svg><span id="loginText">Continue with Google</span></button><button id="syncNow" disabled>↻ Sync now</button><button id="copyGuest" hidden>Import guest data</button><button id="cloudHistory" disabled>Drive history</button><button id="cloudLogout" hidden>Sign out</button><button id="forgetDevice" hidden>Remove local profile</button></div>
+ <div id="cloudStatus" class="cloudstatus" role="status" aria-live="polite">Sign in to save a private copy in your Google Drive.</div>
+ <div id="cloudConflict" class="cloudconflict" hidden><b>Different versions detected</b><span id="conflictText"></span><div class="cloudbuttons"><button id="keepLocal">Keep this device</button><button id="useDrive">Use Drive version</button></div><small>Export a backup first if unsure. Habit ticks are merged when resolving; expenses and projects use the chosen version. Previous Drive snapshots are retained.</small></div>
+ <div id="historyList" class="cloudhistory" hidden></div>
+ <p class="cloudhint">Google Drive access is limited to FlowDesk's hidden app-data folder. Offline changes stay here until connected. <a href="./privacy.html" target="_blank" rel="noopener">Privacy &amp; data</a></p>
+</section>
+<div class="section"><span>Your workspaces / 03</span></div>
+      <div class="cards">
+        <button class="appcard" data-open="life" style="--c:#d1ff75;--glow:#a6f85b20">
+          <div class="appicon"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="m7 12 3 3 7-7"/></svg></div>
+          <h2>LifeFlow</h2>
+          <p>Daily discipline, locked habits and monthly consistency reports.</p>
+          <div class="stat"><small>Today's completion</small><strong id="lifeStat">—</strong></div>
+          <div class="open"><span>Open discipline tracker</span><span>↗</span></div>
+        </button>
+        <button class="appcard" data-open="spend" style="--c:#ff626a;--glow:#ff354525">
+          <div class="appicon">₹</div>
+          <h2>SpendFlow</h2>
+          <p>Personal expenses, daily records and monthly spending analytics.</p>
+          <div class="stat"><small>Spent today</small><strong id="spendStat">—</strong></div>
+          <div class="open"><span>Open expense tracker</span><span>↗</span></div>
+        </button>
+        <button class="appcard" data-open="edit" style="--c:#ffd400;--glow:#ffd40019">
+          <div class="appicon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg></div>
+          <h2>EditFlow</h2>
+          <p>Manage creative projects, clients, income and workflow.</p>
+          <div class="stat"><small>Active editing projects</small><strong id="editStat">—</strong></div>
+          <div class="open"><span>Open creative studio</span><span>↗</span></div>
+        </button>
+      </div>
+
+      <div class="section"><span>Settings & reminders</span></div><section class="info" style="display:block"><h2 style="margin:0 0 12px">Daily reminders</h2><div id="reminderBanner" hidden style="padding:12px;background:#a58aff20;border:1px solid #a58aff66;border-radius:12px;margin-bottom:12px"><b id="reminderText"></b><button id="dismissReminder">Dismiss today</button></div><p id="deadlineAlert" style="color:#ff8a8f"></p><p id="monthlyAlert"></p><label><input type="checkbox" id="reminderEnabled"> Daily in-app reminder</label> <label style="margin-left:10px">Time <input id="reminderTime" type="time" value="21:00" style="color-scheme:dark"></label><div style="display:flex;gap:12px;flex-wrap:wrap;margin:12px 0"><label><input type="checkbox" id="reminderLife"> LifeFlow</label><label><input type="checkbox" id="reminderSpend"> SpendFlow</label><label><input type="checkbox" id="reminderEdit"> EditFlow</label></div><small>Device-local settings. Alerts appear when FlowDesk is open; no background push service.</small><p id="reminderStatus" role="status"></p><hr style="border:0;border-top:1px solid #ffffff18"><h2 style="margin:12px 0">App updates</h2><p>FlowDesk v1.1 · Wallet & custom habits</p><button id="checkUpdates">Check for updates</button> <span id="updateReady" hidden><button id="applyUpdate">Update now</button></span><p id="updateStatus" role="status">Updates preserve local data.</p></section><div class="section"><span>Data & privacy</span></div>
+      <div class="info">
+        <div><b>Your records stay on this device, with optional private Google Drive sync.</b>Use each workspace’s backup and restore options to move existing records here. Export backups regularly to keep a portable copy of your records.</div>
+        <button id="backupAll">↓ Backup all records</button>
+      </div>
+      <div class="foot"><span>FlowDesk / v1.1</span><span>Offline ready · Optional Google Drive sync</span></div>
+    </div>
+  </section>
+  <iframe id="life" class="view" title="LifeFlow" hidden></iframe>
+  <iframe id="spend" class="view" title="SpendFlow" hidden></iframe>
+  <iframe id="edit" class="view" title="EditFlow" hidden></iframe>
+</main>
+<script src="./habits.js"></script>
+<script src="./wallet.js"></script>
+<script>
+
+const $=id=>document.getElementById(id);
+const names=['home','life','spend','edit'];
+const baseKeys={life:'flowdesk.pwa.lifeflow.daily.v1',spend:'flowdesk.pwa.spendflow.v1.ledger',edit:'flowdesk.pwa.editflow_private_local_v1'};const keys={...baseKeys};window.flowdeskProfileSuffix='';
+const localDay=d=>[d.getFullYear(),String(d.getMonth()+1).padStart(2,'0'),String(d.getDate()).padStart(2,'0')].join('-');
+function read(key){let raw=localStorage.getItem(key);return raw?JSON.parse(raw):null}
+function updateClock(d=new Date()){
+  const pad=n=>String(n).padStart(2,'0');
+  $('clock').textContent=[d.getHours(),d.getMinutes(),d.getSeconds()].map(pad).join(':');
+  $('weekday').textContent=d.toLocaleDateString('en-IN',{weekday:'long'});
+  $('date').textContent=d.toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
+}
+function update(){
+  let d=new Date(),k=localDay(d);
+  updateClock(d);
+  try{
+    let l=read(keys.life),s=read(keys.spend),e=read(keys.edit);
+    $('lifeStat').textContent=Math.round((l?.records?.[k]?.length||0)/LifeHabits.total(l?.schedule,k)*100)+'%';
+    $('spendStat').textContent=new Intl.NumberFormat('en-IN',{style:'currency',currency:'INR',maximumFractionDigits:2}).format((s?.records?.[k]||[]).reduce((a,x)=>a+x.paise,0)/100);
+    $('editStat').textContent=String((e?.projects||[]).filter(p=>p.status==='Active').length);
+    $('warning').hidden=true;
+  }catch(err){
+    $('warning').hidden=false;
+    ['lifeStat','spendStat','editStat'].forEach(id=>$(id).textContent='—');
+  }
+}
+function show(name){
+  if(!names.includes(name))return;
+  for(let n of names){
+    $(n).hidden=n!==name;
+    $('tab-'+n).setAttribute('aria-selected', String(n===name));
+  }
+  if(name!=='home' && !$(name).hasAttribute('src')) $(name).src = './'+name+'.html';
+  if(name==='home') update();
+}
+document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>show(b.dataset.tab));
+document.querySelectorAll('[data-open]').forEach(b=>b.onclick=()=>show(b.dataset.open));
+$('backupAll').onclick=()=>{
+  try{
+    const payload={format:'flowdesk-backup',version:2,exported_at:new Date().toISOString(),workspaces:Object.fromEntries(Object.entries(keys).map(([n,k])=>[n,read(k)]))};
+    const url=URL.createObjectURL(new Blob([JSON.stringify(payload,null,2)],{type:'application/json'}));
+    const a=document.createElement('a'); a.href=url; a.download='FlowDesk-Backup-'+localDay(new Date())+'.json'; a.click();
+    setTimeout(()=>URL.revokeObjectURL(url), 5000);
+  }catch(e){ alert('Could not export local records: '+e.message); }
+};
+const motionButton=$('motionHome');function motion(off){document.body.classList.toggle('motion-off',off);motionButton.textContent=off?'Motion off':'Motion on';motionButton.setAttribute('aria-pressed',String(off));try{localStorage.setItem('flowdesk.pwa.flowdesk-motion-off',String(off))}catch(e){}}try{motion(localStorage.getItem('flowdesk.pwa.flowdesk-motion-off')==='true'||(localStorage.getItem('flowdesk.pwa.flowdesk-motion-off')===null&&matchMedia('(prefers-reduced-motion: reduce)').matches))}catch(e){}motionButton.onclick=()=>motion(!document.body.classList.contains('motion-off'));update(); setInterval(updateClock,1000); setInterval(update,15000); window.addEventListener('storage',update); document.addEventListener('visibilitychange',()=>{if(!document.hidden)update()});
+
+let installPrompt=null; const installBtn=$('installApp');const installHelp=$('installHelp');
+function installed(){return matchMedia('(display-mode: standalone)').matches||navigator.standalone===true}
+if(installed())installBtn.hidden=true;
+window.addEventListener('beforeinstallprompt',event=>{event.preventDefault();installPrompt=event;installBtn.hidden=false});
+installBtn.onclick=async()=>{if(installPrompt){const prompt=installPrompt;installPrompt=null;await prompt.prompt();await prompt.userChoice;}else installHelp.hidden=!installHelp.hidden;};
+window.addEventListener('appinstalled',()=>{installBtn.hidden=true;installHelp.hidden=true});
+if('serviceWorker' in navigator){navigator.serviceWorker.register('./sw.js').then(()=>navigator.serviceWorker.ready).then(()=>{$('offlineStatus').textContent='Offline ready'}).catch(()=>{$('offlineStatus').textContent='Offline setup failed'});}else $('offlineStatus').textContent='Offline requires HTTPS';
+</script>
+<script src="./config.js"></script>
+<script src="./cloud.js"></script>
+<script src="./settings.js"></script>
+</body>
+</html>
