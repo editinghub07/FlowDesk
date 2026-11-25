@@ -87,3 +87,10 @@ Get ready for the future of FlowDesk!
 Discover 11 upcoming workspaces designed to simplify your life, fitness, studies, finances, business and productivity.
 Continue using LifeFlow, SpendFlow and EditFlow while we prepare the next major update.
 14 Flows. One Workspace. Everything in Flow.
+
+## FlowDesk v1.1.6 — RGB Motion Edition
+
+Experience FlowDesk like never before.
+Introducing continuously looping RGB lighting, premium motion graphics, glowing interfaces, floating particles, animated cards and smoother transitions.
+A new visual experience. The same powerful workspace.
+FlowDesk — Everything in One Flow.
