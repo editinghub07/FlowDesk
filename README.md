@@ -80,3 +80,10 @@ What's new in FlowDesk v1.1.4:
 - Improved mobile usability.
 
 Existing records remain compatible with the new version.
+
+## FlowDesk v1.1.5 — Coming Soon Update
+
+Get ready for the future of FlowDesk!
+Discover 11 upcoming workspaces designed to simplify your life, fitness, studies, finances, business and productivity.
+Continue using LifeFlow, SpendFlow and EditFlow while we prepare the next major update.
+14 Flows. One Workspace. Everything in Flow.
