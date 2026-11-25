@@ -185,3 +185,25 @@ Introducing three new workspaces to make your daily life more organized, focused
 Plan Better. Focus Deeper. Capture Everything.
 
 Everything in One Flow.
+
+# FlowDesk v1.1.11 – v1.1.16 | Major Membership Update
+
+Introducing a smarter FlowDesk experience with an integrated membership system, secure payments and improved application performance.
+
+**What's New:**
+
+- **v1.1.11 – Membership System:** Introduced Basic and Pro membership plans with Razorpay Test Mode integration.
+- **v1.1.12 – Live Payments:** Added secure real-time payments, monthly and yearly subscriptions, automatic renewals and premium workspace restrictions.
+- **v1.1.13 – Test Mode Improvements:** Improved payment testing, subscription verification and membership activation.
+- **v1.1.14 – Update & Stability Fixes:** Improved automatic app updates, caching, navigation and membership verification.
+- **v1.1.15 – Simplified Checkout:** Redesigned the membership interface with easy plan selection, a cleaner layout and seamless checkout.
+- **v1.1.16 – Owner Lifetime Access:** Added secure, account-specific owner privileges and permanent Pro access.
+
+**Membership Plans:**
+- Basic — Free forever with LifeFlow and SpendFlow.
+- Pro Monthly — ₹99/month.
+- Pro Yearly — ₹799/year.
+
+Enjoy secure payments, automatic renewals, premium workspaces and a smoother productivity experience.
+
+**FlowDesk — Your Life. Your Money. Your Work.**
