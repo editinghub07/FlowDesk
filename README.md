@@ -154,3 +154,34 @@ Introducing a smarter, more connected and intelligent FlowDesk experience. Manag
 **FlowDesk — Your Personal Life OS.**
 
 One App. One Workspace. Everything in One Flow.
+
+## FlowDesk v1.1.10 — Productivity Edition
+
+Introducing three new workspaces to make your daily life more organized, focused and productive.
+
+**What's New:**
+
+- **TaskFlow:** General task manager with priorities, categories, deadlines and progress tracking.
+- **TimeFlow:** Pomodoro focus timer, custom sessions, break modes and focus history.
+- **NoteFlow:** Create, edit, search, categorize and pin important notes.
+- **Smart Dashboard:** Integrated task, focus and note statistics.
+- **FlowInsights:** Enhanced productivity reports.
+- **Universal Search:** Search records across all seven active Flows.
+- **Universal Quick Add:** Quickly create tasks, notes and focus sessions.
+- **FlowAssistant:** Expanded productivity commands.
+- **Smart Reminders:** Upcoming and overdue task reminders.
+- **Google Drive Sync:** Support for the new workspace records.
+- Horizontal scrolling workspace cards.
+- Single-line, bidirectional scrolling navigation.
+- Slim 38px navigation bar for more usable screen space.
+- Improved mobile responsiveness, animations and interface performance.
+
+**7 Active Flows:** LifeFlow, SpendFlow, EditFlow, SaveFlow, TaskFlow, TimeFlow and NoteFlow.
+
+**7 Upcoming Flows:** FitFlow, StudyFlow, GoalFlow, BusinessFlow, PlanFlow, TravelFlow and SubFlow.
+
+**FlowDesk — Your Personal Life OS.**
+
+Plan Better. Focus Deeper. Capture Everything.
+
+Everything in One Flow.
