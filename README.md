@@ -108,3 +108,25 @@ FlowDesk — Everything in One Flow.
 
 Created & Developed by Nikhil Shinde.
 FlowDesk — Everything in One Flow.
+
+## FlowDesk v1.1.8 — Smart Savings Edition
+
+Introducing **SaveFlow**, a smarter and more interactive way to manage your savings and achieve financial goals.
+
+**What's New:**
+- SaveFlow with animated Savings Jars and Dream Vaults.
+- Custom automatic savings percentage from 0–100%.
+- Direct savings transfers between SpendFlow and SaveFlow.
+- Automatic and manual savings management.
+- Smart Savings Planner and goal completion forecasts.
+- Savings challenges, streaks and calendar.
+- Emergency savings vault.
+- Modern, minimal goal icons and custom image uploads.
+- Milestone rewards and celebration animations.
+- Google Drive integration for PC and mobile synchronization.
+- Animated first-launch welcome tour for new users.
+- Option to replay the feature tour from Settings.
+- Improved user interface, animations and performance.
+
+**4 Active Flows:** LifeFlow, SpendFlow, EditFlow and SaveFlow.
+
