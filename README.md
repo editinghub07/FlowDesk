@@ -130,3 +130,27 @@ Introducing **SaveFlow**, a smarter and more interactive way to manage your savi
 
 **4 Active Flows:** LifeFlow, SpendFlow, EditFlow and SaveFlow.
 
+## FlowDesk v1.1.9 — Connected Ecosystem
+
+Introducing a smarter, more connected and intelligent FlowDesk experience. Manage your life, finances, savings and creative work from one unified workspace.
+
+**What's New:**
+
+- **FlowEngine:** Connects EditFlow, SpendFlow and SaveFlow with intelligent payment and savings automation.
+- **Smart Dashboard:** Your entire day at a glance, with real-time habit progress, finances, projects and savings.
+- **Universal Quick Add:** Add income, expenses, savings, habits, clients and project tasks from anywhere.
+- **FlowInsights:** Personalized weekly and monthly reports with detailed statistics and spending insights.
+- **Universal Search:** Instantly find records across all four active Flows.
+- **Smart Reminders:** Stay updated on pending habits, project deadlines and client payments while FlowDesk is running.
+- **Home Widgets:** Customizable live information cards and supported app shortcuts.
+- **FlowAssistant:** Private, rule-based natural-language commands and personalized insights.
+- Improved Home layout with the original animated local clock.
+- Enhanced financial automation and duplicate payment protection.
+- Improved mobile and desktop experience.
+- Performance, stability and interface improvements.
+
+**Active Flows:** LifeFlow, SpendFlow, EditFlow and SaveFlow.
+
+**FlowDesk — Your Personal Life OS.**
+
+One App. One Workspace. Everything in One Flow.
