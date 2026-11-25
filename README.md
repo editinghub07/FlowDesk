@@ -94,3 +94,17 @@ Experience FlowDesk like never before.
 Introducing continuously looping RGB lighting, premium motion graphics, glowing interfaces, floating particles, animated cards and smoother transitions.
 A new visual experience. The same powerful workspace.
 FlowDesk — Everything in One Flow.
+
+## FlowDesk v1.1.7 — Smart EditFlow Final Release
+
+- Automatic editing activity tracking for After Effects, Premiere Pro and DaVinci Resolve.
+- Lightweight Windows background tracker with automatic startup.
+- Improved pairing and connection feedback.
+- Cleaner Home dashboard with continuous RGB animations.
+- Google Account and Cloud Sync moved to Settings.
+- Improved mobile interface with Windows-only tracker information.
+- Added developer credits and application version information.
+- Bug fixes and interface improvements.
+
+Created & Developed by Nikhil Shinde.
+FlowDesk — Everything in One Flow.
