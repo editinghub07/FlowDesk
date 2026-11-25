@@ -66,3 +66,17 @@ Google may occasionally require renewed authorization.
 ## FlowDesk v1.1.3 — Persistent Login & Auto Sync
 
 Introducing FlowDesk v1.1.3 with persistent Google login, automatic authorization renewal, faster device synchronization and improved account security. Added an in-app upgrade notification and migration guide.
+
+## FlowDesk v1.1.4 — Simple SpendFlow Update
+
+What's new in FlowDesk v1.1.4:
+
+- Redesigned SpendFlow with a simple, user-friendly interface.
+- Quick expense and income entry.
+- Simplified balance overview.
+- Easy transaction history.
+- Expandable account settings and financial reports.
+- Existing Google login and automatic synchronization retained.
+- Improved mobile usability.
+
+Existing records remain compatible with the new version.
