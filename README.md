@@ -207,3 +207,38 @@ Introducing a smarter FlowDesk experience with an integrated membership system, 
 Enjoy secure payments, automatic renewals, premium workspaces and a smoother productivity experience.
 
 **FlowDesk — Your Life. Your Money. Your Work.**
+
+## 🔐 v1.1.17 — Membership & Early Access
+
+- Introduced the Early Access registration system.
+- Improved customer membership management.
+- Updated membership eligibility and access restrictions.
+- Improved Razorpay subscription integration.
+- Retained owner lifetime membership privileges.
+- Improved terms and conditions.
+- Preserved existing customer records and account information.
+
+## 🛡️ v1.1.18 — Login Stability Update
+
+- Improved Google authentication stability.
+- Improved persistent login and session management.
+- Addressed login and account restoration issues.
+- Retained Google Drive cloud synchronization.
+- Improved existing membership access handling.
+- Maintained compatibility with Windows, Android and iOS web app installations.
+
+## ✨ v1.2 — The FlowAI Revolution
+
+The biggest milestone in FlowDesk development, introducing FlowAI as an integrated personal AI assistant.
+
+### FlowAI Intelligence
+
+- Introduced FlowAI Alpha 08.0.7.
+- Achieved 90.5/100 in our internal feature benchmark.
+- Local AI processing using supported customer device hardware.
+- Downloadable AI models.
+- Multilingual conversation support.
+- Mathematical calculations and logical reasoning.
+- Coding assistance.
+- Business planning and productivity assistance.
+- Scientific
