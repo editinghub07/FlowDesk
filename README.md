@@ -242,3 +242,117 @@ The biggest milestone in FlowDesk development, introducing FlowAI as an integrat
 - Coding assistance.
 - Business planning and productivity assistance.
 - Scientific
+
+FlowAI Models
+Model
+Parameters
+Approximate download
+Status
+FlowAI Core
+1.5B
+880 MB
+Available
+FlowAI Pro
+4B
+2.28 GB
+Available
+FlowAI Ultra
+8B
+8.9 GB
+Under Maintenance
+
+AI models run locally on compatible devices. Performance depends on available memory, graphics hardware and browser capabilities.
+Redesigned Homepage
+New compact homepage layout.
+Consistent rectangle sizes and spacing.
+Improved live date and time display.
+FlowAI chat shortcut below the clock.
+Top-left hamburger navigation.
+Restored FlowDesk introduction.
+Improved workspace accessibility.
+Responsive desktop and mobile layouts.
+Retained data privacy and backup sections.
+
+## 📱 v1.2.1 — In-App AI Experience
+
+Added a dedicated Back to Home button inside the FlowAI view.
+Introduced full-screen in-app FlowAI navigation.
+Removed unnecessary external browser navigation when opening FlowAI.
+Improved mobile screen compatibility.
+Improved navigation between FlowDesk and FlowAI
+Preserved the Alpha 08.0.7 intelligence engine.
+
+## ⚡ v1.2.2 — Quick Tools & Update Improvements
+
+Added Scan Bill · Private to the top-right AI toolbar.
+Added Clean Memory to the top-right AI toolbar.
+Improved access to frequently used AI features.
+Updated the application version and service-worker cache revision.
+Improved update detection for installed web applications.
+Retained full-screen AI navigation.
+Maintained the existing intelligence engine and model configuration.
+
+## 🧩 v1.2.3 — Workspace Quick Access
+
+Introduced a new Quick Access section below FlowAI.
+Added compact, equal-sized square workspace shortcuts.
+Enabled direct navigation to individual workspaces.
+Improved homepage organization.
+Retained the hamburger navigation menu.
+Preserved existing workspace permissions.
+Improved responsive layouts for desktop and mobile devices.
+Available Workspaces
+LifeFlow: Daily habits, routines and discipline tracking.
+SpendFlow: Income, expenses and personal finance management.
+EditFlow: Creative projects, clients and editing business management.
+SaveFlow: Savings and financial goals.
+TaskFlow: Daily tasks and productivity management.
+TimeFlow: Time management and focus tracking.
+NoteFlow: Personal notes and information organization.
+☁️ Cloud & Account Compatibility
+Google account authentication.
+Existing Google Drive synchronization.
+Cloudflare-powered authentication infrastructure.
+Razorpay subscription management.
+Existing membership compatibility.
+No intentional customer database reset or migration.
+Continued support for existing hosted Windows and mobile installations.
+
+🔒 Privacy & Security
+
+FlowDesk continues to prioritize customer privacy and control.
+Local AI inference on compatible devices.
+Private receipt and document processing.
+Customer-controlled AI memory.
+Existing account and workspace access restrictions.
+Separation between the AI environment and production customer records.
+
+🖥️ Supported Platforms
+
+Windows
+Android
+iOS
+Compatible desktop web browsers
+
+Existing installed web applications can receive website updates without reinstalling when they use the same hosted origin and successfully refresh their application cache.
+
+🚧 Known Limitations & Upcoming Improvements
+
+FlowAI Ultra 8B is currently under maintenance.
+AI performance varies depending on device specifications.
+Some browsers may require downloading AI models again.
+Full AI access to production workspace records is still under development.
+Production AI membership permissions require further integration.
+Additional mobile compatibility and performance testing is ongoing.
+
+📦 Release Information
+
+Application: FlowDesk
+Version: 1.2.3
+AI Engine: FlowAI Alpha 08.0.7
+Release Date: 27 November 2026
+Release Type: Major Feature & Productivity Update
+FlowDesk — Your Life. Your Work. Your AI.
+One workspace. Multiple possibilities.
+
+Designed to simplify everyday life, manage productivity and bring personal intelligence directly to your device.
